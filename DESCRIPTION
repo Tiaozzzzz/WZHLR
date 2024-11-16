@@ -2,8 +2,8 @@ Package: WZHLR
 Type: Package
 Title: Linear Regression
 Version: 0.1.0
-Author: Zihan Wang(david-wzh@outlook.com)
-Maintainer: Zihan Wang(david-wzh@outlook.com)
+Author: Zihan Wang <david-wzh@outlook.com>
+Maintainer: Zihan Wang <david-wzh@outlook.com>
 Description: Fit Linear Regression Model
     Use four spaces when indenting paragraphs within the Description.
 License: N/A
