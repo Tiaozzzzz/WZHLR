@@ -1,4 +1,5 @@
-fit_linear_regression = function(Y, X, intercept = TRUE){
+
+fit_linear_regression = function(Y, X){
 
   Y = as.matrix(Y)
   X = as.matrix(X)
@@ -7,13 +8,10 @@ fit_linear_regression = function(Y, X, intercept = TRUE){
   X = as.matrix(X[complete_index,])
 
   n = dim(X)[1]
-  p = dim(X)[2]
+  p = dim(X)[2] + 1
 
-  if(intercept){
-    Intercept = rep(1,n)
-    X = cbind(Intercept,X)
-    p = p + 1
-  }
+  Intercept = rep(1,n)
+  X = cbind(Intercept,X)
 
   unit_vector = rep(1,n)
   y_bar = rep((t(unit_vector) %*% Y)/n,n)
@@ -32,9 +30,9 @@ fit_linear_regression = function(Y, X, intercept = TRUE){
   std_errors = sqrt(diag(covariance_matrix))
 
   t_values = beta / std_errors
-  beta_p_values = 2 * (1 - pt(abs(t_values), n-p))
+  #beta_p_values = 2 * (1 - pt(abs(t_values), n-p))
   f_value = (SSR/(p-1))/(SSE/(n-p))
-  f_p_value = 1 - pf(f_value, p-1, n-p)
+  #f_p_value = 1 - pf(f_value, p-1, n-p)
 
   r_squared = (SSY - SSE)/SSY
   adjusted_r_squared = 1 - (SSE/(n-p))/(SSY/(n-1))
@@ -44,14 +42,16 @@ fit_linear_regression = function(Y, X, intercept = TRUE){
     sigma2 = sigma_square,
     std_errors = std_errors,
     t_values = t_values,
-    beta_p_values = beta_p_values,
+    #beta_p_values = beta_p_values,
     f_value = f_value,
-    f_p_value = f_p_value,
+    #f_p_value = f_p_value,
     r_squared = r_squared,
     adjusted_r_squared = adjusted_r_squared
   ))
 
 }
+
+
 
 
 
