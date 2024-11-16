@@ -1,38 +1,58 @@
+fit_linear_regression = function(Y, X, intercept = TRUE){
 
-fit_linear_regression = function(Y, X, Intercept = TRUE){
-  
   Y = as.matrix(Y)
   X = as.matrix(X)
-  complete_index = union(which(complete.cases(Y)),which(complete.cases(X)))
+  complete_index = intersect(which(complete.cases(Y)),which(complete.cases(X)))
   Y = as.matrix(Y[complete_index,])
   X = as.matrix(X[complete_index,])
-  
+
   n = dim(X)[1]
   p = dim(X)[2]
-  
-  if(Intercept){
-  intercept_col = rep(1,n)
-  X = cbind(intercept_col,X)
-  p = p + 1
+
+  if(intercept){
+    Intercept = rep(1,n)
+    X = cbind(Intercept,X)
+    p = p + 1
   }
-  
+
+  unit_vector = rep(1,n)
+  y_bar = rep((t(unit_vector) %*% Y)/n,n)
+  difference = Y-y_bar
+  SSY = as.numeric(t(difference) %*% difference)
+
   beta = solve(t(X) %*% X) %*% t(X) %*% Y
   residual = Y - X %*% beta
-  sigma_square = t(residual) %*% residual / (n-p)
-  covariance_matrix = solve(t(X) %*% X) * as.numeric(sigma_square)
+
+  SSE = as.numeric(t(residual) %*% residual)
+  SSR = SSY - SSE
+
+
+  sigma_square = SSE / (n-p)
+  covariance_matrix = solve(t(X) %*% X) * sigma_square
   std_errors = sqrt(diag(covariance_matrix))
+
   t_values = beta / std_errors
-  p_values = 2 * (1 - pt(abs(t_values), n-p))
-  
+  beta_p_values = 2 * (1 - pt(abs(t_values), n-p))
+  f_value = (SSR/(p-1))/(SSE/(n-p))
+  f_p_value = 1 - pf(f_value, p-1, n-p)
+
+  r_squared = (SSY - SSE)/SSY
+  adjusted_r_squared = 1 - (SSE/(n-p))/(SSY/(n-1))
+
   return(list(
     coefficients = beta,
     sigma2 = sigma_square,
     std_errors = std_errors,
     t_values = t_values,
-    p_values = p_values
+    beta_p_values = beta_p_values,
+    f_value = f_value,
+    f_p_value = f_p_value,
+    r_squared = r_squared,
+    adjusted_r_squared = adjusted_r_squared
   ))
-  
-  }
+
+}
+
 
 
 
