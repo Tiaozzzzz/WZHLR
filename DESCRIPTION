@@ -11,3 +11,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/Tiaozzzzz/WZHLR
 BugReports: https://github.com/Tiaozzzzz/WZHLR/issues
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
