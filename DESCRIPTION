@@ -13,4 +13,5 @@ BugReports: https://github.com/Tiaozzzzz/WZHLR/issues
 Suggests: 
     knitr,
     rmarkdown
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
