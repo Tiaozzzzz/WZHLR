@@ -16,4 +16,59 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(WZHLR)
+library(bench)
+library(MASS)
+
+###Test on MASS::Cars93
+#Formula: Price ~ Horsepower + Luggage.room
+
+testdata = MASS::Cars93
+
+##Check the correctness of the parameter estimates
+
+# Intercept
+all.equal(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$coefficients[1],
+          (as.numeric(lm(Price ~ Horsepower + Luggage.room, 
+                         data = testdata)$coefficients[1])))
+
+# Slope_1
+all.equal(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$coefficients[2],
+          (as.numeric(lm(Price ~ Horsepower + Luggage.room, 
+                         data = testdata)$coefficients[2])))
+
+# Slope_2
+all.equal(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$coefficients[3],
+          (as.numeric(lm(Price ~ Horsepower + Luggage.room, 
+                         data = testdata)$coefficients[3])))
+
+# F-statistics 
+all.equal(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$f_value,
+          (as.numeric(summary(lm(Price ~ Horsepower + Luggage.room, 
+                         data = testdata))$fstatistic[1])))
+
+# R_squared
+all.equal(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$r_squared,
+          summary(lm(Price ~ Horsepower + Luggage.room, 
+                         data = testdata))$r.squared)
+
+# Adjusted_R_squared
+all.equal(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$adjusted_r_squared,summary(lm(Price ~ Horsepower + Luggage.room, 
+                         data = testdata))$adj.r.squared)
+
+## benchmark
+
+# slope
+mark(as.numeric(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$coefficients[1]),
+          (as.numeric(lm(Price ~ Horsepower + Luggage.room, 
+                         data = testdata)$coefficients[1])))
+
+# F-statistics
+mark(as.numeric(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$f_value),
+          (as.numeric(summary(lm(Price ~ Horsepower + Luggage.room, 
+                         data = testdata))$fstatistic[1])))
+
+# adjusted R          
+mark(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$adjusted_r_squared,summary(lm(Price ~ Horsepower + Luggage.room, 
+                         data = testdata))$adj.r.squared)
+
 ```
