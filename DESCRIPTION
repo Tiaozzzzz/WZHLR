@@ -17,6 +17,7 @@ Suggests:
     testthat (>= 3.0.0),
     MASS,
     covr,
+    stats,
     bench
 VignetteBuilder: knitr
 Config/testthat/edition: 3

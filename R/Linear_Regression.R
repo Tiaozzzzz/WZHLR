@@ -1,3 +1,23 @@
+#' Fit a Linear Regression Model
+#'
+#' This function fits a linear regression model to the given response `Y` and predictors `X`.
+#' @param Y A numeric column obtained from a dataframe representing the response variable.
+#' @param X A few columns obtained from a dataframe representing predictors .
+#' @return A list containing the regression coefficients and other model statistics.
+#' @examples
+#' Y <- c(1, 2, 3)
+#' X <- matrix(c(1, 2, 3), ncol = 1)
+#' fit <- fit_linear_regression(Y, X)
+#' print(fit)
+#' @export
+#' @importFrom stats complete.cases
+
+fit_linear_regression <- function(Y, X, intercept = TRUE) {
+  # Your code here...
+  complete_index <- intersect(which(complete.cases(Y)), which(complete.cases(X)))
+  ...
+}
+
 
 fit_linear_regression = function(Y, X){
 
