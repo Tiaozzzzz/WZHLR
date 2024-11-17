@@ -12,13 +12,6 @@
 #' @export
 #' @importFrom stats complete.cases
 
-fit_linear_regression <- function(Y, X, intercept = TRUE) {
-  # Your code here...
-  complete_index <- intersect(which(complete.cases(Y)), which(complete.cases(X)))
-  ...
-}
-
-
 fit_linear_regression = function(Y, X){
 
   Y = as.matrix(Y)
