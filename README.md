@@ -22,7 +22,8 @@ pak::pak("Tiaozzzzz/WZHLR")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to use the function
+fit_linear_regression:
 
 ``` r
 library(WZHLR)
