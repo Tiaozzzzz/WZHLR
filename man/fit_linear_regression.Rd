@@ -18,8 +18,7 @@ A list containing the regression coefficients and other model statistics.
 This function fits a linear regression model to the given response \code{Y} and predictors \code{X}.
 }
 \examples{
-Y <- c(1, 2, 3)
-X <- matrix(c(1, 2, 3), ncol = 1)
-fit <- fit_linear_regression(Y, X)
-print(fit)
+Y = c(2,4,6,8)
+X = c(0.5,0.7,1.6,2.2)
+fit_linear_regression(Y,X)
 }

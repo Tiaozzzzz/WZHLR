@@ -32,7 +32,37 @@ fit_linear_regression:
 library(WZHLR)
 library(MASS)
 
-## basic example code
+## basic example 1
+Y = c(2,4,6,8)
+X = c(0.5,0.7,1.6,2.2)
+fit_linear_regression(Y,X)
+#> $coefficients
+#>               [,1]
+#> Intercept 1.031746
+#>           3.174603
+#> 
+#> $sigma2
+#> [1] 0.4761905
+#> 
+#> $std_errors
+#> Intercept           
+#> 0.7160472 0.5019488 
+#> 
+#> $t_values
+#>               [,1]
+#> Intercept 1.440891
+#>           6.324555
+#> 
+#> $f_value
+#> [1] 40
+#> 
+#> $r_squared
+#> [1] 0.952381
+#> 
+#> $adjusted_r_squared
+#> [1] 0.9285714
+
+## basic example 2
 
 testdata = MASS::Cars93
 fit_linear_regression(testdata$Price,testdata[,c("Horsepower","Luggage.room")])
