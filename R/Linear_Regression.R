@@ -1,8 +1,8 @@
 #' Fit a Linear Regression Model
 #'
 #' This function fits a linear regression model to the given response `Y` and predictors `X`.
-#' @param Y A numeric column obtained from a dataframe representing the response variable.
-#' @param X A few columns obtained from a dataframe representing predictors .
+#' @param Y :A numeric column obtained from a dataframe representing the response variable.
+#' @param X :A few columns obtained from a dataframe representing predictors .
 #' @return A list containing the regression coefficients and other model statistics.
 #' @examples
 #' Y <- c(1, 2, 3)
