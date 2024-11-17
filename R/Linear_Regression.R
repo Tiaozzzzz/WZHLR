@@ -4,12 +4,13 @@
 #' @param Y : A numeric column obtained from a dataframe representing the response variable.
 #' @param X : A few columns obtained from a dataframe representing predictors.
 #' @return A list containing the regression coefficients and other model statistics.
+#' @export
 #' @examples
 #' Y = c(2,4,6,8)
 #' X = c(0.5,0.7,1.6,2.2)
 #' fit_linear_regression(Y,X)
-#' @export
 #' @importFrom stats complete.cases
+
 
 fit_linear_regression = function(Y, X){
 
