@@ -7,9 +7,9 @@
 fit_linear_regression(Y, X)
 }
 \arguments{
-\item{Y}{:A numeric column obtained from a dataframe representing the response variable.}
+\item{Y}{: A numeric column obtained from a dataframe representing the response variable.}
 
-\item{X}{:A few columns obtained from a dataframe representing predictors .}
+\item{X}{: A few columns obtained from a dataframe representing predictors.}
 }
 \value{
 A list containing the regression coefficients and other model statistics.
