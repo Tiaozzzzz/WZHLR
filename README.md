@@ -4,6 +4,9 @@
 # WZHLR
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/Tiaozzzzz/WZHLR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Tiaozzzzz/WZHLR/actions/workflows/R-CMD-check.yaml)
+[![codecov](https://codecov.io/gh/Tiaozzzzz/WZHLR/branch/main/graph/badge.svg?token=TOKEN)](https://app.codecov.io/gh/Tiaozzzzz/WZHLR)
 <!-- badges: end -->
 
 The goal of WZHLR is to fit linear regression model with intercept
