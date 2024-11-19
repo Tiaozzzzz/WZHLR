@@ -15,16 +15,14 @@ fit_linear_regression(Y, X)
 A list containing the regression coefficients and other model statistics.
 }
 \description{
-This function fits a linear regression model to the given response \code{Y} and predictors \code{X}.
+This function fits a linear regression model (with intercept) to the given response \code{Y} and predictors \code{X}.
 }
 \examples{
-# Example 1: Simple linear regression
+# Example 1: Simple Linear Regression
 Y = c(2, 4, 6, 8)
 X = c(0.5, 0.7, 1.6, 2.2)
 fit_linear_regression(Y, X)
-
-# Example 2: Cars93 data
+# Example 2: Cars93 Data
 testdata = MASS::Cars93
 fit_linear_regression(testdata$Price,testdata[,c("Horsepower","Luggage.room")])
-
 }

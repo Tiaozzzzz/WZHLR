@@ -6,10 +6,13 @@
 #' @return A list containing the regression coefficients and other model statistics.
 #' @export
 #' @examples
-#' # Example 1: Simple linear regression
+#' # Example 1: Simple Linear Regression
 #' Y = c(2, 4, 6, 8)
 #' X = c(0.5, 0.7, 1.6, 2.2)
 #' fit_linear_regression(Y, X)
+#' # Example 2: Cars93 Data
+#' testdata = MASS::Cars93
+#' fit_linear_regression(testdata$Price,testdata[,c("Horsepower","Luggage.room")])
 #' @importFrom stats complete.cases
 
 
