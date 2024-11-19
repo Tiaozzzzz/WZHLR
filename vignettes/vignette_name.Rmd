@@ -67,7 +67,7 @@ mark(as.numeric(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$f_valu
           (as.numeric(summary(lm(Price ~ Horsepower + Luggage.room, 
                          data = testdata))$fstatistic[1])))
 
-# adjusted R          
+# Adjusted r_squared          
 mark(fit_linear_regression(testdata$Price,testdata[,c(13,24)])$adjusted_r_squared,summary(lm(Price ~ Horsepower + Luggage.room, 
                          data = testdata))$adj.r.squared)
 
