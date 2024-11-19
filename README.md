@@ -11,7 +11,10 @@
 
 The goal of WZHLR is to fit linear regression model with intercept
 assuming the LINE(Linearity, Independence, Normality, Equal Variance)
-Assumptions are satisfied.
+Assumptions are satisfied. The observations with missingness will be
+removed. The function will return parameter estimates, standard errors,
+estimated residual variance, t-values, f-value, r-squared and adjusted
+r-squared.
 
 ## Installation
 
