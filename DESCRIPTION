@@ -11,14 +11,13 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/Tiaozzzzz/WZHLR
 BugReports: https://github.com/Tiaozzzzz/WZHLR/issues
-Imports:
-    MASS
 Suggests: 
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
     covr,
     stats,
+    MASS,
     bench
 VignetteBuilder: knitr
 Config/testthat/edition: 3
