@@ -16,6 +16,7 @@
 #' fit_linear_regression(testdata$Price,testdata[,c("Horsepower","Luggage.room")])
 #'
 #' @importFrom stats complete.cases
+#' @importFrom MASS Cars93
 
 
 fit_linear_regression = function(Y, X){
