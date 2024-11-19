@@ -18,7 +18,13 @@ A list containing the regression coefficients and other model statistics.
 This function fits a linear regression model to the given response \code{Y} and predictors \code{X}.
 }
 \examples{
-Y = c(2,4,6,8)
-X = c(0.5,0.7,1.6,2.2)
-fit_linear_regression(Y,X)
+# Example 1: Simple linear regression
+Y = c(2, 4, 6, 8)
+X = c(0.5, 0.7, 1.6, 2.2)
+fit_linear_regression(Y, X)
+
+# Example 2: Cars93 data
+testdata = MASS::Cars93
+fit_linear_regression(testdata$Price,testdata[,c("Horsepower","Luggage.room")])
+
 }
