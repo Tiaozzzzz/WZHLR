@@ -16,12 +16,17 @@
 
 fit_linear_regression = function(Y, X){
 
+  #Take columns from a dataframe as input, change to matrix form
+
   Y = as.matrix(Y)
   X = as.matrix(X)
+
+  #Only use complete observations
   complete_index = intersect(which(complete.cases(Y)),which(complete.cases(X)))
   Y = as.matrix(Y[complete_index,])
   X = as.matrix(X[complete_index,])
 
+  #Fit linear regression with intercept
   n = dim(X)[1]
   p = dim(X)[2] + 1
 
@@ -52,6 +57,7 @@ fit_linear_regression = function(Y, X){
   r_squared = (SSY - SSE)/SSY
   adjusted_r_squared = 1 - (SSE/(n-p))/(SSY/(n-1))
 
+  #Return all components in a list
   return(list(
     coefficients = beta,
     sigma2 = sigma_square,
